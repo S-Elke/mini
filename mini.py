@@ -13,12 +13,22 @@ def list(courses):
         print(str(i) + ": " + courses[i]);
     print("")
 
-def register(l):
-    pass
+def register(available, registered):
+    list(available)
+    while 1:
+        try:
+            course_num = int(input("Course number: "))
+            break
+        except:
+            print("Please type a number")
+    if course_num >= len(available) or course_num < 0:
+        print("Not a in course listings")
+        return
+    registered.append(available[course_num])
 
 
 def console(available):
-    registered = ["one course"]
+    registered = []
     while 1:
         user_input = str(input("Console: ")).lower()
         if "help".startswith(user_input):
@@ -31,18 +41,12 @@ exit - exit console
         elif "available".startswith(user_input):
             list(available)
         elif "register".startswith(user_input) and len(registered) < 3:
-            list(available)
-            while 1:
-                try:
-                    course_num = int(input("Course number: "))
-                    break
-                except:
-                    print("Please type a number")
+            register(available, registered)
         elif "my".startswith(user_input):
             list(registered)
         elif "exit".startswith(user_input):
             break
 
-course_list = []
+course_list = ["computing fundies", "circuits and signals", "cornerstones"]
 
 console(course_list)
