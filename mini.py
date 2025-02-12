@@ -8,6 +8,8 @@ readability.
 .
 '''
 
+
+
 #lists courses
 def list(courses):
     for i in range(len(courses)):
@@ -26,7 +28,11 @@ def register(available, registered):
     if course_num >= len(available) or course_num < 0:
         print("Not a in course listings")
         return
-    registered.append(available[course_num])
+    if len(registered ) < 3:
+        registered.append(available[course_num])
+        print("Successfully registered for " + str(available[course_num]))
+    else:
+        print("You have already registered for the maximum number of courses")
 
 #console help statement
 def help_statement():
