@@ -20,12 +20,17 @@ def register(l):
 def console(available):
     registered = ["one course"]
     while 1:
-        user_input = str(input("Console: "))
-        if user_input in "help":
-            print("heres some helpful information")
-        elif user_input in "available":
+        user_input = str(input("Console: ")).lower()
+        if "help".startswith(user_input):
+            print('''help - show this statement
+available - show available courses
+register - register for an available course
+my - show your courses
+exit - exit console
+''')
+        elif "available".startswith(user_input):
             list(available)
-        elif user_input in "register" and len(registered) < 3:
+        elif "register".startswith(user_input) and len(registered) < 3:
             list(available)
             while 1:
                 try:
@@ -33,9 +38,9 @@ def console(available):
                     break
                 except:
                     print("Please type a number")
-        elif user_input in "my":
+        elif "my".startswith(user_input):
             list(registered)
-        elif user_input in "exit":
+        elif "exit".startswith(user_input):
             break
 
 course_list = []
