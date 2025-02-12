@@ -8,11 +8,13 @@ readability.
 .
 '''
 
+#lists courses
 def list(courses):
     for i in range(len(courses)):
         print(str(i) + ": " + courses[i]);
     print("")
 
+#register a course from available to registered
 def register(available, registered):
     list(available)
     while 1:
@@ -26,18 +28,23 @@ def register(available, registered):
         return
     registered.append(available[course_num])
 
-
-def console(available):
-    registered = []
-    while 1:
-        user_input = str(input("Console: ")).lower()
-        if "help".startswith(user_input):
-            print('''help - show this statement
+#console help statement
+def help_statement():
+    print('''help - show this statement
 available - show available courses
 register - register for an available course
 my - show your courses
 exit - exit console
 ''')
+
+#console runs continuously until exited
+def console(available):
+    registered = []
+    help_statement()
+    while 1:
+        user_input = str(input("Console: ")).lower()
+        if "help".startswith(user_input):
+            help_statement()
         elif "available".startswith(user_input):
             list(available)
         elif "register".startswith(user_input) and len(registered) < 3:
