@@ -26,11 +26,14 @@ def register(available, registered):
         except:
             print("Please type a number")
     if course_num >= len(available) or course_num < 0:
-        print("Not a in course listings")
+        print("Not a in course listings\n")
+        return
+    elif available[course_num] in registered:
+        print("Already registered for this course\n")
         return
     if len(registered ) < 3:
         registered.append(available[course_num])
-        print("Successfully registered for " + str(available[course_num]))
+        print("Successfully registered for " + str(available[course_num]) + "\n")
     else:
         print("You have already registered for the maximum number of courses")
 
