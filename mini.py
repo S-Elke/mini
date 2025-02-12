@@ -8,13 +8,19 @@ readability.
 .
 '''
 
+class course():
+    def __init__(self, name, cn, creds):
+        self.name = name
+        self.cn = cn
+        self.creds = creds
 
+    def disp(self):
+        print(str(self.cn)+" - " + self.name + " ; credits: " + str(self.creds))
 
 #lists courses
 def list(courses):
-    for i in range(len(courses)):
-        print(str(i) + ": " + courses[i]);
-    print("")
+    for course in courses:
+        course.disp()
 
 #register a course from available to registered
 def register(available, registered):
@@ -63,6 +69,6 @@ def console(available):
         elif "exit".startswith(user_input):
             break
 
-course_list = ["computing fundies", "circuits and signals", "cornerstones"]
+course_list = [course("Computing fundamentals", 2140, 4)]
 
 console(course_list)
