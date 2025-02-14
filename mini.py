@@ -72,6 +72,6 @@ def console(available):
         elif "exit".startswith(user_input):
             break
 
-course_list = [course("Computing fundamentals", 2140, 4)]
+course_list = [course("Computing fundamentals", 2140, 4), course("Physics 2", 1155, 4), course("Seminar for Engineers", 1001, 1)]
 
 console(course_list)
