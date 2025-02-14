@@ -15,7 +15,10 @@ class course():
         self.creds = creds
 
     def disp(self):
-        print(str(self.cn)+" - " + self.name + " ; credits: " + str(self.creds))
+        print(f"{self.cn} - {self.name} ; credits: {self.creds}")
+
+    def __str__(self):
+        return f"{self.cn} - {self.name} ; credits: {self.creds}"
 
 #lists courses
 def list(courses):
@@ -45,11 +48,11 @@ def register(available, registered):
 
 #console help statement
 def help_statement():
-    print('''help - show this statement
-available - show available courses
-register - register for an available course
-my - show your courses
-exit - exit console
+    print('''To show help statement, type [help]
+To show available courses, type [available]
+To register for available courses, type [register]
+To show your registered courses, type [my]
+To exit console, type [exit]
 ''')
 
 #console runs continuously until exited
