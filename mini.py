@@ -68,15 +68,15 @@ def console(available):
     registered = []
     help_statement()
     while 1:
-        user_input = str(input("Console: ")).lower()
+        user_input = input("Console: ").strip().lower()
         if "help".startswith(user_input):
             help_statement()
         elif "available".startswith(user_input):
-            list(available)
+            list_courses(available)
         elif "register".startswith(user_input) and len(registered) < 3:
             register(available, registered)
         elif "my".startswith(user_input):
-            list(registered)
+            list_courses(registered)
         elif "exit".startswith(user_input):
             break
 
