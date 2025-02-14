@@ -21,30 +21,38 @@ class course():
         return f"{self.cn} - {self.name} ; credits: {self.creds}"
 
 #lists courses
-def list(courses):
+def list_courses(courses):
     for course in courses:
         course.disp()
 
 #register a course from available to registered
 def register(available, registered):
-    list(available)
-    while 1:
+    if len(registered) >= 3:
+        print("You are already registered for 3 courses")
+        return
+    
+    list_courses(available)
+    while True:
         try:
-            course_num = int(input("Course place in list (starting at 0): "))
+            course_num = int(input("Enter the course number to register: "))
             break
-        except:
+        except ValueError:
             print("Please type a number")
-    if course_num >= len(available) or course_num < 0:
-        print("Not a in course listings\n")
+    
+#Specify by specific course number 
+    course = next((course for course in available if course.cn == course_num), None)
+    
+    if course is None:
+        print("Invalid course number")
         return
-    elif available[course_num] in registered:
-        print("Already registered for this course\n")
+        
+    if course in registered:
+        print("You are already registered for this course")
         return
-    if len(registered ) < 3:
-        registered.append(available[course_num])
-        print("Successfully registered for " + str(available[course_num]) + "\n")
-    else:
-        print("You have already registered for the maximum number of courses")
+    
+    registered.append(course)
+    print(f"Registered for {course.name}")
+
 
 #console help statement
 def help_statement():
