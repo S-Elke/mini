@@ -30,7 +30,7 @@ def register(available, registered):
     list(available)
     while 1:
         try:
-            course_num = int(input("Course number: "))
+            course_num = int(input("Course place in list (starting at 0): "))
             break
         except:
             print("Please type a number")
